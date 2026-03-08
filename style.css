@@ -1,0 +1,947 @@
+/* --- 1. CONFIGURATION & RESET --- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700;900&display=swap");
+
+* {
+    padding: 0;
+
+    margin: 0;
+
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+
+    background-color: #ffffff;
+
+    margin: 0;
+
+    padding: 0;
+
+    overflow-x: hidden;
+}
+::selection{
+    background-color: #ed563b;
+}
+
+html {
+    scroll-behavior: smooth;
+
+    scroll-padding-top: 80px;
+}
+
+/* --- NAVIGATION --- */
+
+.desktop-menu {
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    z-index: 100;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 25px 90px;
+
+    background-color: rgba(205, 230, 246, 0.1);
+
+    transition:
+        background-color 0.4s ease,
+        padding 0.4s ease;
+}
+
+.desktop-menu h1{
+    font-size: 2.2rem;
+    font-weight: 900;
+}
+.desktop-menu h1,
+.desktop-menu .nav-links a {
+    color: #ffffff;
+
+    transition: color 0.4s ease;
+}
+
+.desktop-menu.scrolled {
+    background-color: #ffffff !important;
+
+    padding: 30px 90px;
+
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.desktop-menu.scrolled h1,
+.desktop-menu.scrolled .nav-links a {
+    color: #232d39 !important;
+}
+
+/* Reusable Orange Accents */
+.color-change,
+.nav-links a:hover,
+.desktop-menu.scrolled .nav-links a:hover {
+    color: #ed563b !important;
+}
+
+.nav-links {
+    display: flex;
+
+    list-style: none;
+
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+
+    letter-spacing: 1.9px;
+
+    font-weight: 600;
+
+    font-size: 0.8rem;
+
+    text-transform: uppercase;
+}
+
+.btn-signup {
+    background-color: #ed563b;
+
+    color: white !important;
+
+    padding: 10px 20px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+
+
+/* --- HERO SECTION --- */
+
+.hero-section {
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background-color: #232d39;
+    /* Match overlay to prevent flicker */
+}
+
+#bg-video {
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    min-width: 100%;
+
+    min-height: 100%;
+
+    z-index: 1;
+    /* Above background, below overlay */
+
+    transform: translate(-50%, -50%);
+
+    object-fit: cover;
+
+    /* will-change: transform; */
+}
+
+/* Dark overlay over video */
+.hero-section::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background-color: rgba(35, 45, 57, 0.8);
+
+    z-index: 2;
+    /* Dark layer */
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 10;
+    /* High z-index ensures button is clickable */
+
+    text-align: center;
+
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 5.25rem;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    margin: 20px 0 30px 0;
+}
+
+.hero-content h5 {
+    font-size: 1.3rem;
+}
+
+.hero-content h1 span {
+    color: #ed563b;
+}
+
+.main-button {
+    display: inline-block;
+
+    padding: 20px 30px;
+
+    background-color: #ed563b;
+
+    color: #fff;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+    margin-top: 20px;
+}
+
+.main-button:hover {
+    background-color: #f9735b;
+}
+
+/* --- ABOUT SECTION & PROGRAMS  --- */
+
+.about-section {
+    background-color: #ffffff;
+
+    padding: 100px 0;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+.container {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 0 20px;
+}
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 80px;
+}
+
+.section-heading h2 {
+    font-size: 2rem;
+
+    color: #232d39;
+
+    text-transform: uppercase;
+
+    font-weight: 800;
+}
+
+.section-heading h2 span {
+    color: #ed563b;
+}
+
+/*  wavy background*/
+
+.wavy-bg {
+    padding: 20px;
+}
+
+.txt {
+    color: #7a7a7a;
+
+    text-align: center;
+
+    font-size: 1rem;
+}
+
+.program-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 50px 30px;
+}
+
+.program-item {
+    display: flex;
+
+}
+
+.icon-box {
+    background-color: #ed563b;
+
+    padding: 5px;
+
+    margin-right: 20px;
+
+    border-radius: 5px;
+
+    flex-shrink: 0;
+}
+
+.program-content h4 {
+    color: rgb(35, 45, 57);
+
+    margin-bottom: 10px;
+
+    font-weight: 700;
+
+    font-size: 19px;
+}
+
+.program-content p {
+    color: rgb(122, 122, 122);
+
+    font-size: 0.9rem;
+
+    margin-bottom: 15px;
+
+    line-height: 1.7;
+}
+
+.discover-more {
+    color: #ed563b;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    font-size: 0.8rem;
+
+    text-transform: uppercase;
+}
+
+/* --- 5. FULL WIDTH CTA SECTION --- */
+.central-bg {
+    width: 100vw;
+
+    position: relative;
+
+    left: 50%;
+
+    right: 50%;
+
+    margin-inline: -50vw;
+
+    padding: 120px 0;
+
+    margin-top: 40px;
+
+    /* 2. Standard Background Setup */
+
+    background-image:
+        linear-gradient(rgba(35, 45, 57, 0.2), rgba(35, 45, 57, 0.8)),
+        url("Assets/cta-bg.jpg");
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+    /* This makes it hit all 4 edges */
+
+    text-align: center;
+}
+
+.cta-content {
+    /* Use a container inside to keep text from touching the screen edges */
+
+    max-width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+    /* Stack H2 and P vertically */
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+.cta-content h2 {
+    font-size: 36px;
+
+    text-transform: uppercase;
+
+    font-weight: 800;
+
+    color: #ffffff;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 10px;
+}
+
+.cta-content p {
+    font-size: 16px;
+
+    color: #fff;
+
+    line-height: 1.9;
+
+    letter-spacing: 1px;
+
+    max-width: 800px;
+
+    padding: 10px;
+}
+
+/* --- 6. CLASSES TAB SECTION --- */
+.classes-wrapper {
+    display: grid;
+
+    grid-template-columns: 1fr 2fr;
+    /* Left is smaller, Right is wider */
+
+    gap: 40px;
+
+    padding: 60px 0;
+}
+
+.tabs-menu {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.tab-item {
+    background: #fff;
+
+    border: none;
+
+    padding: 30px;
+
+    text-align: left;
+
+    font-weight: 700;
+
+    font-size: 1.1rem;
+
+    color: #232d39;
+
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow from image */
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    border-radius: 5px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.tab-item.active {
+    color: #ed563b;
+}
+
+.content-img {
+    width: 100%;
+
+    border-radius: 5px;
+
+    margin-bottom: 25px;
+}
+
+.content-text h3 {
+    font-size: 1.8rem;
+
+    margin-bottom: 15px;
+
+    color: #0a0b0b;
+}
+
+.content-text p {
+    padding: 10px;
+
+    color: #7a7a7a;
+}
+
+#sc-hd {
+    margin-top: 4.5rem;
+
+    text-align: center;
+
+    font-size: 1rem;
+
+    padding: 30px;
+}
+
+#btn {
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    font-weight: 600;
+
+    font-size: 1.1rem;
+
+    color: #fff;
+
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow from image */
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+/* Tab Switching Logic */
+
+.tab-panel {
+    display: none;
+
+    animation: fadeIn 0.5s ease;
+    /* Adds a nice smooth fade */
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* 7.SCHEDULE SECTION */
+
+#change, .wavy-bg{
+    color: #fff;
+    letter-spacing: 1px;
+    text-align: center;
+    
+}
+.schedule-days{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+padding: 1rem;
+margin: 2rem;
+text-align: center;
+text-transform: capitalize;
+}
+.schedule-days .active{
+    color: #ed563b;
+}
+#schedules{
+   width: 100%;
+    padding: 120px 0;
+    margin-top: 6rem;
+  background-image:  linear-gradient(rgba(35, 45, 57, 0.2), rgba(35, 45, 57, 0.2)), url(Assets/schedule-bg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container-sc{
+   max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+    color: #fff;
+     overflow-x: auto;
+    
+   
+}
+.schedule-table {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+   
+}
+
+.table-cell {
+    padding: 2rem;
+    border: 1px solid rgba(245, 239, 239, 0.9);
+}
+/* 8. EXPERT TRAINERS SECTION */
+.expert-trainer{
+    padding: 2rem;
+    margin-top: 8rem;
+}
+
+.blog-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.blog-post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 18.75rem; 
+  min-width: 200px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+.blog-post:hover {
+  transform: translateY(-10px);
+}
+
+.blog-post img {
+  max-width: 100%;
+  border-radius: 2px;
+ 
+}
+.blog-post h3,p{
+    padding: 8px;
+}
+.color-changed{
+    padding: 0.5rem;
+    text-align: left;
+    margin-top: 15px;
+    margin-right: 90px;
+    color: #ed563b;
+}
+.social-icon {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+
+}
+.social-icon li a{
+    color: #0a0b0b;
+}
+
+/*  9. CONTACT FORM & MAP*/
+
+.contact-section{
+       background-image: linear-gradient(
+        rgba(35,45,57,0.8),
+        rgba(35,45,57,0.8)
+    );
+
+    background-size: cover;
+    background-position: center;
+    
+}
+.contact-box-layout{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+}
+
+.google-map iframe{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.form-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-fill-information{
+    background: #fff;
+    border-radius: 0.1rem;
+    padding: 30px;
+    width: 90%;
+}
+.input-info{
+    display: flex;
+    gap: 4rem;
+    margin-bottom: 1rem;
+}
+
+.contact-fill-information input, 
+.contact-fill-information textarea{
+width: 100%;
+padding: 1rem;
+margin-bottom: 1rem;
+}
+
+.contact-fill-information textarea{
+    resize: none;
+}
+.contact-fill-information button{
+    border: none;
+    cursor: pointer;
+}
+
+
+/* ================= MOBILE MENU ================= */
+
+.hamburger{
+    display:none;
+    font-size:26px;
+    cursor:pointer;
+    padding:8px 12px;
+    margin-left:auto;
+}
+
+/* Mobile container */
+
+.mobile-menu{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:#fff;
+
+    display:flex;
+    flex-direction:column;
+
+    transform:translateY(-100%);
+    transition:0.4s;
+
+    z-index:999;
+}
+
+.mobile-menu.active{
+    transform:translateY(0);
+}
+
+/* header */
+
+.mobile-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 30px;
+    border-bottom:1px solid #eee;
+}
+
+.mobile-header h1{
+    color:#232d39;
+    font-weight:900;
+    font-size: 1.5rem;
+}
+
+.close-menu{
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* links */
+
+.mobile-links{
+    list-style:none;
+    text-align:center;
+}
+
+.mobile-links li{
+    border-bottom:1px solid #eee;
+}
+
+.mobile-links a{
+    display:block;
+    padding:18px;
+    text-decoration:none;
+    color:#232d39;
+    font-weight:600;
+    font-size:0.9rem;
+    letter-spacing:1px;
+}
+
+/* signup button */
+
+.mobile-signup{
+    margin: 0.3rem;
+    text-align:center;
+    padding:10px;
+    background:#ed563b;
+    color:#fff;
+    text-decoration:none;
+    font-size:0.9rem;
+}
+
+/* Hide desktop nav on mobile */
+
+@media(max-width:900px){
+    .desktop-menu{
+    padding:18px 25px;
+}
+
+
+.nav-links,
+.btn-signup{
+    display:none;
+}
+
+.hamburger{
+    display:block;
+}
+
+
+}
+
+
+/* TABLET  Responsive(max-width: 992px)*/
+
+@media (max-width: 992px){
+
+.desktop-menu{
+    padding:20px 40px;
+}
+
+.hero-content h1{
+    font-size:3.5rem;
+}
+
+.program-grid{
+    grid-template-columns:1fr;
+}
+
+.classes-wrapper{
+    grid-template-columns:1fr;
+}
+
+.tab-item{
+    padding:20px;
+}
+
+.contact-box-layout{
+    grid-template-columns:1fr;
+}
+
+.google-map iframe{
+    height:400px;
+}
+
+.blog-post{
+    width:45%;
+}
+
+}
+
+
+/* MOBILE  Responsive (max-width: 768px)*/
+
+@media (max-width:768px){
+
+.desktop-menu{
+    padding:15px 20px;
+}
+
+.hero-content h1{
+    font-size:2.5rem;
+}
+
+.hero-content h5{
+    font-size:1rem;
+}
+
+.main-button{
+    padding:14px 20px;
+}
+
+.program-item{
+    flex-direction:column;
+    text-align:center;
+}
+
+.icon-box{
+    margin:0 auto 15px;
+}
+
+.blog-container{
+    gap:30px;
+}
+
+.blog-post{
+    width:100%;
+}
+
+.input-info{
+    flex-direction:column;
+    gap:1rem;
+}
+
+.schedule-table{
+    grid-template-columns:1fr 1fr;
+}
+
+}
+
+
+/* SMALL MOBILE (max-width:480px)*/
+
+@media (max-width:480px){
+
+.hero-content h1{
+    font-size:2rem;
+}
+
+.section-heading h2{
+    font-size:1.5rem;
+}
+
+.cta-content h2{
+    font-size:1.7rem;
+}
+
+.schedule-table{
+    grid-template-columns:1fr;
+}
+
+.desktop-menu h1{
+    font-size:1.5rem;
+}
+
+}
