@@ -830,7 +830,14 @@ margin-bottom: 1rem;
 
 
 }
-
+footer{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  
+}
 
 /* TABLET  Responsive(max-width: 992px)*/
 
